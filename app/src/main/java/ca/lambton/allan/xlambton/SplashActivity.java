@@ -2,9 +2,9 @@ package ca.lambton.allan.xlambton;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
 import java.io.IOException;

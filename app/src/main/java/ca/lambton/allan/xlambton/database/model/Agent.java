@@ -6,6 +6,7 @@ public class Agent implements SingleIdEntity<Integer> {
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_PHOTO = "photo";
     public static final String COLUMN_LEVEL = "level";
     public static final String COLUMN_AGENCY = "agency";
     public static final String COLUMN_WEB_SITE = "web_site";
@@ -17,6 +18,7 @@ public class Agent implements SingleIdEntity<Integer> {
             "CREATE TABLE " + TABLE_NAME + " ("
                     + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COLUMN_NAME + " TEXT,"
+                    + COLUMN_PHOTO + " TEXT,"
                     + COLUMN_LEVEL + " TEXT,"
                     + COLUMN_AGENCY + " TEXT,"
                     + COLUMN_WEB_SITE + " TEXT,"
@@ -27,6 +29,7 @@ public class Agent implements SingleIdEntity<Integer> {
 
     private Integer id;
     private String name;
+    private String photo;
     private String level;
     private String agency;
     private String webSite;
@@ -50,6 +53,14 @@ public class Agent implements SingleIdEntity<Integer> {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getLevel() {
@@ -104,6 +115,7 @@ public class Agent implements SingleIdEntity<Integer> {
     public String toString() {
         return "Agent{" + "id=" + id +
                 ", name='" + name + '\'' +
+                ", photo='" + photo + '\'' +
                 ", level='" + level + '\'' +
                 ", agency='" + agency + '\'' +
                 ", webSite='" + webSite + '\'' +

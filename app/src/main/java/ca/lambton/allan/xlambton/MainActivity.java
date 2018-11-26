@@ -1,7 +1,8 @@
 package ca.lambton.allan.xlambton;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
         // agents list
         Button menuList = findViewById(R.id.menu_list);
         menuList.setOnClickListener(v -> {
-
+            Intent intent = new Intent(this, AgentListActivity.class);
+            startActivity(intent);
         });
 
         // search agent
