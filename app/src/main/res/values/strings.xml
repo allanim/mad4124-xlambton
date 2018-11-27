@@ -4,4 +4,6 @@
     <string name="search_agent">Search agent</string>
     <string name="agents_list">Agents List</string>
     <string name="title_agent_list">Agent List</string>
+
+    <string name="error_field_required">This field is required</string>
 </resources>

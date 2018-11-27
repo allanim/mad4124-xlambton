@@ -3,6 +3,7 @@ package ca.lambton.allan.xlambton;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -25,7 +26,6 @@ public class AgentFormActivity extends AppCompatActivity {
     private String photoPath;
 
     private AgentRepository repository;
-
     private AgentFormHelper helper;
 
     @Override
@@ -41,23 +41,32 @@ public class AgentFormActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Agent agent = (Agent) intent.getSerializableExtra("agent");
+        if (agent != null) {
+            helper.fillForm(agent);
+        }
 
         // photo
         Button buttonFormPhoto = findViewById(R.id.button_form_photo);
         buttonFormPhoto.setOnClickListener(v -> {
             photoPath = getExternalFilesDir(null)
                     + "/" + System.currentTimeMillis() + ".jpg";
-            File filePhoto = new File(photoPath);
 
-            // photoUri
-            Uri photoUri = FileProvider.getUriForFile(AgentFormActivity.this,
-                    "ca.lambton.allan.xlambton.provider", filePhoto);
-
+            // action camera
             Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-
+            intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, converter(photoPath));
             startActivityForResult(intentCamera, CAMERA_CODE);
         });
+    }
+
+    private Uri converter(String filePath) {
+        File file = new File(filePath);
+
+        if (Build.VERSION.SDK_INT < 24) {
+            return Uri.fromFile(file);
+        } else {
+            return FileProvider.getUriForFile(this,
+                    "ca.lambton.allan.xlambton.provider", file);
+        }
     }
 
     @Override
@@ -82,17 +91,18 @@ public class AgentFormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_form_ok:
-                Agent agent = helper.getAgent();
+                if (helper.valid()) {
+                    Agent agent = helper.getAgent();
+                    if (agent.getId() == null) {
+                        repository.insert(agent);
+                    } else {
+                        repository.update(agent);
+                    }
 
-                if (agent.getId() == null) {
-                    repository.insert(agent);
-                } else {
-                    repository.update(agent);
+                    Toast.makeText(AgentFormActivity.this,
+                            "Saved Agent: " + agent.getName(), Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-
-                Toast.makeText(AgentFormActivity.this,
-                        "Student" + agent.getName() + " Saved", Toast.LENGTH_SHORT).show();
-                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
