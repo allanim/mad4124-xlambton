@@ -5,6 +5,8 @@ public class Agent implements SingleIdEntity<Integer> {
     public static final String TABLE_NAME = "agent";
 
     public static final String COLUMN_ID = "id";
+    public static final String COLUMN_USERNAME = "user_name";
+    public static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_PHOTO = "photo";
     public static final String COLUMN_LEVEL = "level";
@@ -17,6 +19,8 @@ public class Agent implements SingleIdEntity<Integer> {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " ("
                     + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + COLUMN_USERNAME + " TEXT,"
+                    + COLUMN_PASSWORD + " TEXT,"
                     + COLUMN_NAME + " TEXT,"
                     + COLUMN_PHOTO + " TEXT,"
                     + COLUMN_LEVEL + " TEXT,"
@@ -28,6 +32,8 @@ public class Agent implements SingleIdEntity<Integer> {
                     + ")";
 
     private Integer id;
+    private String username;
+    private String password;
     private String name;
     private String photo;
     private String level;
@@ -45,6 +51,22 @@ public class Agent implements SingleIdEntity<Integer> {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -114,6 +136,8 @@ public class Agent implements SingleIdEntity<Integer> {
     @Override
     public String toString() {
         return "Agent{" + "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", photo='" + photo + '\'' +
                 ", level='" + level + '\'' +

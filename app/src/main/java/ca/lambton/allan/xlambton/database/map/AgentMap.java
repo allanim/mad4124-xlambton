@@ -12,6 +12,8 @@ public class AgentMap implements AndroidContentMap<Agent> {
 
         ContentValues values = new ContentValues();
         values.put(Agent.COLUMN_ID, basicInfo.getId());
+        values.put(Agent.COLUMN_USERNAME, basicInfo.getUsername());
+        values.put(Agent.COLUMN_PASSWORD, basicInfo.getPassword());
         values.put(Agent.COLUMN_NAME, basicInfo.getName());
         values.put(Agent.COLUMN_PHOTO, basicInfo.getPhoto());
         values.put(Agent.COLUMN_LEVEL, basicInfo.getLevel());
@@ -28,6 +30,8 @@ public class AgentMap implements AndroidContentMap<Agent> {
 
         Agent agent = new Agent();
         agent.setId(cursor.getInt(cursor.getColumnIndex(Agent.COLUMN_ID)));
+        agent.setUsername(cursor.getString(cursor.getColumnIndex(Agent.COLUMN_USERNAME)));
+        agent.setPassword(cursor.getString(cursor.getColumnIndex(Agent.COLUMN_PASSWORD)));
         agent.setName(cursor.getString(cursor.getColumnIndex(Agent.COLUMN_NAME)));
         agent.setPhoto(cursor.getString(cursor.getColumnIndex(Agent.COLUMN_PHOTO)));
         agent.setLevel(cursor.getString(cursor.getColumnIndex(Agent.COLUMN_LEVEL)));

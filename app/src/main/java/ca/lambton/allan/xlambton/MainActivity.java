@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         // add agent
         Button menuAdd = findViewById(R.id.menu_add);
         menuAdd.setOnClickListener(v -> {
-
+            Intent intent = new Intent(this, AgentFormActivity.class);
+            startActivity(intent);
         });
 
     }

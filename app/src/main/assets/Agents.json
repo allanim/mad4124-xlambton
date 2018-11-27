@@ -1,0 +1,68 @@
+[
+  {
+    "id": null,
+    "username": "admin",
+    "password": "password",
+    "name": "Admin",
+    "photo": null,
+    "level": "001",
+    "agency": "LCIT",
+    "webSite": "http://www.lambton.ca",
+    "address": "265 Yorkland Rd, Toronto, ON",
+    "country": "Canada",
+    "phone": "4160001111"
+  },
+  {
+    "id": null,
+    "username": "allan",
+    "password": "password",
+    "name": "Seongyeob Im",
+    "photo": null,
+    "level": "001",
+    "agency": "Toronto",
+    "webSite": "http://www.toronto.ca",
+    "address": "275 Yorkland Rd, Toronto, ON",
+    "country": "Canada",
+    "phone": "4160002222"
+  },
+  {
+    "id": null,
+    "username": "akshdeep",
+    "password": "password",
+    "name": "Akshdeep Kaur",
+    "photo": null,
+    "level": "002",
+    "agency": "RBC",
+    "webSite": "http://www.rbc.ca",
+    "address": "265 Yorkland Rd, Toronto, ON",
+    "country": "Canada",
+    "phone": "4161113333"
+  },
+  {
+    "id": null,
+    "username": "paramjit",
+    "password": "password",
+    "name": "Paramjit Singh",
+    "photo": null,
+    "level": "003",
+    "agency": "TD",
+    "webSite": "http://www.td.ca",
+    "address": "265 Yorkland Rd, Toronto, ON",
+    "country": "Canada",
+    "phone": "4161114444"
+  },
+  {
+    "id": null,
+    "username": "ramanpreet",
+    "password": "password",
+    "name": "Ramanpreet Kaur",
+    "photo": null,
+    "level": "004",
+    "agency": "CIBC",
+    "webSite": "http://www.cibc.com",
+    "address": "265 Yorkland Rd, Toronto, ON",
+    "country": "Canada",
+    "phone": "4161114444"
+  }
+]
+

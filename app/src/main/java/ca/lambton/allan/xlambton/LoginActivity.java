@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import ca.lambton.allan.xlambton.database.model.User;
-import ca.lambton.allan.xlambton.database.repository.UserRepository;
+import ca.lambton.allan.xlambton.database.model.Agent;
+import ca.lambton.allan.xlambton.database.repository.AgentRepository;
 import ca.lambton.allan.xlambton.utils.SharedPreferencesUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText name;
+    private EditText username;
     private EditText password;
 
     @Override
@@ -21,20 +21,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        name = findViewById(R.id.name);
+        username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
         // login
         Button login = findViewById(R.id.login_button);
         login.setOnClickListener(v -> {
             // validation
-            if (name.getText().toString().isEmpty()) {
-                name.setError("Please input the name");
-                name.requestFocus();
+            if (username.getText().toString().isEmpty()) {
+                username.setError("Please input the username");
+                username.requestFocus();
                 return;
-            } else if (!isNameValid(name.getText().toString())) {
-                name.setError("Invalid the name");
-                name.requestFocus();
+            } else if (!isUsernameValid(username.getText().toString())) {
+                username.setError("Invalid the username");
+                username.requestFocus();
                 return;
             }
             if (password.getText().toString().isEmpty()) {
@@ -48,14 +48,14 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             // login process
-            UserRepository repository = new UserRepository(LoginActivity.this);
-            User entity = repository.login(name.getText().toString(), password.getText().toString());
+            AgentRepository repository = new AgentRepository(LoginActivity.this);
+            Agent entity = repository.login(username.getText().toString(), password.getText().toString());
 
             // fail
             if (entity == null) {
-                name.setError("Invalid name or password");
+                username.setError("Invalid username or password");
                 Toast.makeText(LoginActivity.this,
-                        "Invalid name or password", Toast.LENGTH_LONG).show();
+                        "Invalid username or password", Toast.LENGTH_LONG).show();
             }
             // success
             else {
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferencesUtils.instance(LoginActivity.this)
                         .editor()
                         .putInt("ID", entity.getId())
-                        .putString("NAME", entity.getName())
+                        .putString("USERNAME", entity.getUsername())
                         .apply();
 
                 // go to the main
@@ -82,17 +82,17 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferencesUtils.instance(LoginActivity.this)
                 .editor()
                 .remove("ID")
-                .remove("NAME")
+                .remove("USERNAME")
                 .apply();
 
-        name.setText("");
-        name.setError(null);
+        username.setText("");
+        username.setError(null);
         password.setText("");
         password.setError(null);
     }
 
-    private boolean isNameValid(String name) {
-        return name.length() > 3;
+    private boolean isUsernameValid(String username) {
+        return username.length() > 3;
     }
 
     private boolean isPasswordValid(String password) {

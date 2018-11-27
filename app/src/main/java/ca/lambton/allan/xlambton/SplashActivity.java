@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import ca.lambton.allan.xlambton.database.model.User;
-import ca.lambton.allan.xlambton.database.repository.UserRepository;
+import ca.lambton.allan.xlambton.database.model.Agent;
+import ca.lambton.allan.xlambton.database.repository.AgentRepository;
 import ca.lambton.allan.xlambton.utils.JsonUtils;
 
 public class SplashActivity extends AppCompatActivity {
@@ -36,18 +36,19 @@ public class SplashActivity extends AppCompatActivity {
 
     private void updateData() {
         AssetManager assetManager = getAssets();
-        UserRepository repository = new UserRepository(this);
+        AgentRepository repository = new AgentRepository(this);
 
-        // get & set user data
-        int userCount = repository.getCount();
-        Log.i(this.getClass().getSimpleName(), "USER COUNT : " + userCount);
-        if (userCount == 0) {
+        // get & set Agent data
+        int agentCount = repository.getCount();
+        Log.i(this.getClass().getSimpleName(), "AGENT COUNT : " + agentCount);
+        if (agentCount == 0) {
             try {
-                InputStream userListFile = assetManager.open("Users.json");
-                UserList userList = JsonUtils.readJson(userListFile, UserList.class);
-                for (User user : userList) {
-                    repository.insert(user);
-                    Log.i(this.getClass().getSimpleName(), "ADD User Data : " + user.getName());
+                InputStream agentListFile = assetManager.open("Agents.json");
+                AgentList agentList = JsonUtils.readJson(agentListFile, AgentList.class);
+                for (Agent agent : agentList) {
+                    repository.insert(agent);
+                    Log.i(this.getClass().getSimpleName(),
+                            "ADD Agent Data : " + agent.getUsername());
                 }
             } catch (IOException e) {
                 Log.e(this.getClass().getSimpleName(), e.getMessage());
@@ -55,7 +56,6 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-
-    public static class UserList extends ArrayList<User> {
+    public static class AgentList extends ArrayList<Agent> {
     }
 }

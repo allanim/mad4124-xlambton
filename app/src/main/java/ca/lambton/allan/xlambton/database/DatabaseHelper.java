@@ -7,7 +7,6 @@ import android.util.Log;
 
 import ca.lambton.allan.xlambton.database.model.Agent;
 import ca.lambton.allan.xlambton.database.model.Mission;
-import ca.lambton.allan.xlambton.database.model.User;
 
 /**
  * Database Helper
@@ -24,13 +23,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table list
     private static final String[] tableNames = {
-            User.TABLE_NAME,
             Agent.TABLE_NAME,
             Mission.TABLE_NAME
     };
 
     private static final String[] createTableQueries = {
-            User.CREATE_TABLE,
             Agent.CREATE_TABLE,
             Mission.CREATE_TABLE
     };
