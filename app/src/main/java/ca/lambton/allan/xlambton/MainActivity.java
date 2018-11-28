@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         // search agent
         Button menuSearch = findViewById(R.id.menu_search);
         menuSearch.setOnClickListener(v -> {
-
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
         });
 
         // add agent

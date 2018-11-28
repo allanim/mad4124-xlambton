@@ -11,12 +11,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- provider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="ca.lambton.allan.xlambton.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,19 +37,25 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".AgentListActivity"
-            android:label="@string/title_agent_list" />
-        <activity android:name=".AgentFormActivity"></activity>
-
-        <!-- provider-->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="ca.lambton.allan.xlambton.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+            android:label="@string/title_agent_list">
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-        </provider>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.lambton.allan.xlambton.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AgentFormActivity"
+            android:label="Add Agent">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.lambton.allan.xlambton.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="Search">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.lambton.allan.xlambton.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
