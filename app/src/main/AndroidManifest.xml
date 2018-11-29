@@ -59,12 +59,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.lambton.allan.xlambton.MainActivity" />
         </activity>
-        <activity android:name=".AgentProfileActivity"
+        <activity
+            android:name=".AgentProfileActivity"
             android:label="Agent Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.lambton.allan.xlambton.AgentListActivity" />
         </activity>
+        <activity
+            android:name=".SendPhotoActivity"
+            android:label="Mission Update">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.lambton.allan.xlambton.AgentProfileActivity" />
+        </activity>
+        <activity android:name=".MissionListActivity"></activity>
     </application>
 
 </manifest>

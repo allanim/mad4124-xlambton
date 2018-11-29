@@ -124,12 +124,11 @@ public class AgentProfileActivity extends AppCompatActivity {
         ImageView photo = findViewById(R.id.pf_photo);
         if (notEmpty(agent.getPhone())) {
             photo.setOnClickListener(v -> {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:" + agent.getPhone()));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(this, SendPhotoActivity.class);
+                intent.putExtra("agent", agent);
+                startActivity(intent);
             });
+
         } else {
             photo.setVisibility(View.GONE);
         }
@@ -137,7 +136,8 @@ public class AgentProfileActivity extends AppCompatActivity {
         // mission
         ImageView mission = findViewById(R.id.pf_mission);
         mission.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL);
+            Intent intent = new Intent(this, MissionListActivity.class);
+            intent.putExtra("agent", agent);
             startActivity(intent);
         });
     }
