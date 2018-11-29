@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgentProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_photo"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/person"
+        app:civ_border_color="@color/pink"
+        app:civ_border_width="2dp" />
+
+    <ListView
+        android:id="@+id/agent_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="128dp"
+        android:layout_marginBottom="96dp"
+        tools:listitem="@layout/contents_item" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/pf_phone"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_phone" />
+
+        <ImageView
+            android:id="@+id/pf_sms"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_sms" />
+
+        <ImageView
+            android:id="@+id/pf_website"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_website" />
+
+        <ImageView
+            android:id="@+id/pf_map"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_map" />
+
+        <ImageView
+            android:id="@+id/pf_photo"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_photo" />
+
+        <ImageView
+            android:id="@+id/pf_mission"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_padnote" />
+
+    </LinearLayout>
+
+</RelativeLayout>

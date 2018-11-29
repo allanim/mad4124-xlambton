@@ -2,18 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="10dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/item_photo"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/person" />
+        android:src="@drawable/person"
+        app:civ_border_color="@color/pink"
+        app:civ_border_width="2dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -23,6 +27,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:text="Name"
+            android:textColor="@color/yellow"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -33,6 +38,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="8dp"
             android:text="level"
+            android:textColor="@color/cyan"
             android:textSize="16sp" />
 
     </LinearLayout>

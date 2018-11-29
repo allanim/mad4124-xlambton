@@ -41,7 +41,10 @@ public class AgentListActivity extends AppCompatActivity {
         // List
         listView = findViewById(R.id.agent_list);
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            // TODO
+            Agent agent = (Agent) listView.getItemAtPosition(position);
+            Intent goToProfile = new Intent(this, AgentProfileActivity.class);
+            goToProfile.putExtra("id", agent.getId());
+            startActivity(goToProfile);
         });
     }
 
