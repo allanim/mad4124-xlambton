@@ -4,6 +4,9 @@
     package="ca.lambton.allan.xlambton">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SEND_MMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -64,15 +67,12 @@
             android:label="Agent Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
+
                 android:value="ca.lambton.allan.xlambton.AgentListActivity" />
         </activity>
         <activity
             android:name=".SendPhotoActivity"
-            android:label="Mission Update">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.lambton.allan.xlambton.AgentProfileActivity" />
-        </activity>
+            android:label="Mission Update"></activity>
         <activity android:name=".MissionListActivity"></activity>
     </application>
 

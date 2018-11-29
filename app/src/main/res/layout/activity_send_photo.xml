@@ -1,59 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SendPhotoActivity">
 
+    <GridView
+        android:id="@+id/grid_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:columnWidth="150dp"
+        android:drawSelectorOnTop="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp" />
 
     <Button
-        android:id="@+id/take_photo"
+        android:id="@+id/send_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
         android:enabled="false"
-        android:text="Take Photo"/>
-
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-
-        <GridView
-            android:fastScrollAlwaysVisible="true"
-            android:id="@+id/grid_album"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            android:columnWidth="100dp"
-            android:drawSelectorOnTop="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:horizontalSpacing="0dp"
-            android:numColumns="2"
-            android:stretchMode="columnWidth"
-            android:paddingBottom="90dp"
-            android:verticalSpacing="5dp" />
-
-        <Button
-            android:id="@+id/send_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="16dp"
-            android:enabled="false"
-            android:layout_alignParentBottom="true"
-            android:text="Send Message"/>
-    </RelativeLayout>
-
+        android:text="Send Message" />
 
 
 </LinearLayout>
