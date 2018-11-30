@@ -10,8 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.gsm.SmsManager;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.GridView;
 

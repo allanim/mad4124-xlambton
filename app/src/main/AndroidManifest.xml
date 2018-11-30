@@ -4,9 +4,9 @@
     package="ca.lambton.allan.xlambton">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.SEND_MMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -28,12 +28,21 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+        <!-- receiver -->
+        <receiver android:name=".receiver.SMSReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -43,38 +52,22 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".AgentListActivity"
-            android:label="@string/title_agent_list">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.lambton.allan.xlambton.MainActivity" />
-        </activity>
+            android:label="@string/title_agent_list" />
         <activity
             android:name=".AgentFormActivity"
-            android:label="Add Agent">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.lambton.allan.xlambton.MainActivity" />
-        </activity>
+            android:label="Add Agent" />
         <activity
             android:name=".SearchActivity"
-            android:label="Search">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.lambton.allan.xlambton.MainActivity" />
-        </activity>
+            android:label="Search" />
         <activity
             android:name=".AgentProfileActivity"
-            android:label="Agent Profile">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-
-                android:value="ca.lambton.allan.xlambton.AgentListActivity" />
-        </activity>
+            android:label="Agent Profile" />
         <activity
             android:name=".SendPhotoActivity"
-            android:label="Mission Update"></activity>
-        <activity android:name=".MissionListActivity"
-            android:label="Mission Historical"></activity>
+            android:label="Mission Update" />
+        <activity
+            android:name=".MissionListActivity"
+            android:label="Mission Historical" />
     </application>
 
 </manifest>

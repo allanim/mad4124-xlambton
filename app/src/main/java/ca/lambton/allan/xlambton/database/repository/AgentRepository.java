@@ -11,6 +11,7 @@ import ca.lambton.allan.xlambton.database.model.Agent;
 import static ca.lambton.allan.xlambton.database.model.Agent.COLUMN_ID;
 import static ca.lambton.allan.xlambton.database.model.Agent.COLUMN_NAME;
 import static ca.lambton.allan.xlambton.database.model.Agent.COLUMN_PASSWORD;
+import static ca.lambton.allan.xlambton.database.model.Agent.COLUMN_PHONE;
 import static ca.lambton.allan.xlambton.database.model.Agent.COLUMN_USERNAME;
 import static ca.lambton.allan.xlambton.database.model.Agent.TABLE_NAME;
 
@@ -50,13 +51,25 @@ public class AgentRepository extends Repository<Agent, Integer> {
     }
 
     /**
-     * Check exist email
+     * Check exist username
      *
      * @param username username
      * @return true or false
      */
     public boolean existUsername(String username) {
         String sql = "where " + COLUMN_USERNAME + " = " + wrap(username);
+        List<Agent> entities = get(sql);
+        return entities.size() > 0;
+    }
+
+    /**
+     * Check exist phone number
+     *
+     * @param phoneNumber number
+     * @return true or false
+     */
+    public boolean existPhoneNumber(String phoneNumber) {
+        String sql = "where " + COLUMN_PHONE + " = " + wrap(phoneNumber);
         List<Agent> entities = get(sql);
         return entities.size() > 0;
     }

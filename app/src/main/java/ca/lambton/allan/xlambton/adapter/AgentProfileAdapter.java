@@ -47,14 +47,33 @@ public class AgentProfileAdapter extends ArrayAdapter<AgentProfileAdapter.Conten
 
     private List<Contents> convertContents(Agent agent) {
         List<Contents> contentsList = new ArrayList<>();
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_NAME), agent.getName()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_LEVEL), agent.getLevel()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_AGENCY), agent.getAgency()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_WEB_SITE), agent.getWebSite()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_COUNTRY), agent.getCountry()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_PHONE), agent.getPhone()));
-        contentsList.add(new Contents(toCamelCase(Agent.COLUMN_ADDRESS), agent.getAddress()));
+
+        if (notEmpty(agent.getName())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_NAME), agent.getName()));
+        }
+        if (notEmpty(agent.getLevel())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_LEVEL), agent.getLevel()));
+        }
+        if (notEmpty(agent.getAgency())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_AGENCY), agent.getAgency()));
+        }
+        if (notEmpty(agent.getWebSite())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_WEB_SITE), agent.getWebSite()));
+        }
+        if (notEmpty(agent.getCountry())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_COUNTRY), agent.getCountry()));
+        }
+        if (notEmpty(agent.getPhone())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_PHONE), agent.getPhone()));
+        }
+        if (notEmpty(agent.getAddress())) {
+            contentsList.add(new Contents(toCamelCase(Agent.COLUMN_ADDRESS), agent.getAddress()));
+        }
         return contentsList;
+    }
+
+    private boolean notEmpty(String str) {
+        return str != null && !str.isEmpty();
     }
 
     public class Contents {

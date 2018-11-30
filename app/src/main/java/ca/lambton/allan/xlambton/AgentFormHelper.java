@@ -61,7 +61,6 @@ public class AgentFormHelper {
         mUsername.setText(agent.getUsername());
         mPassword.setText(agent.getPassword());
         mUsername.setEnabled(false);
-        mPassword.setEnabled(false);
 
         mName.setText(agent.getName());
         mLevel.setText(agent.getLevel());
