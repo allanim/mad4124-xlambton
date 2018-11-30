@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:src="@drawable/top_secret" />
-
-    <Button
-        android:id="@+id/menu_list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:drawableStart="@drawable/ic_list"
-        android:drawableLeft="@drawable/ic_list"
-        android:drawablePadding="20dp"
-        android:gravity="start"
-        android:text="@string/agents_list"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/menu_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:drawableStart="@drawable/ic_search"
-        android:drawableLeft="@drawable/ic_search"
-        android:drawablePadding="20dp"
-        android:gravity="start"
-        android:text="@string/search_agent"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/menu_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:drawableStart="@drawable/ic_add"
-        android:drawableLeft="@drawable/ic_add"
-        android:drawablePadding="20dp"
-        android:gravity="start"
-        android:text="@string/add_agent"
-        android:textSize="20sp" />
+        android:orientation="vertical">
 
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:src="@drawable/top_secret" />
+
+        <Button
+            android:id="@+id/menu_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableStart="@drawable/ic_list"
+            android:drawableLeft="@drawable/ic_list"
+            android:drawablePadding="20dp"
+            android:gravity="start"
+            android:text="@string/agents_list"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/menu_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableStart="@drawable/ic_search"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="20dp"
+            android:gravity="start"
+            android:text="@string/search_agent"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/menu_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableStart="@drawable/ic_add"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="20dp"
+            android:gravity="start"
+            android:text="@string/add_agent"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+</ScrollView>

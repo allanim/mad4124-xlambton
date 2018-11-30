@@ -146,4 +146,9 @@ public class AgentProfileActivity extends AppCompatActivity {
         return str != null && !str.isEmpty();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

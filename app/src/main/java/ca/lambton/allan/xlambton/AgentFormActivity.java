@@ -98,9 +98,6 @@ public class AgentFormActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
             case R.id.menu_form_ok:
                 if (helper.valid()) {
                     Agent agent = helper.getAgent();
@@ -117,5 +114,11 @@ public class AgentFormActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

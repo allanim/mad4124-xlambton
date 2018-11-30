@@ -41,7 +41,7 @@ public class MissionRepository extends Repository<Mission, Integer> {
      * @return Mission list
      */
     public List<Mission> getAll(Integer agentId) {
-        return get("where " + COLUMN_AGENT_ID + " = " + agentId + " ");
+        return get("where " + COLUMN_AGENT_ID + " = " + agentId + " order by " + COLUMN_ID + " DESC");
     }
 
 

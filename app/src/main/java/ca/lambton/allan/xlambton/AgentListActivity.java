@@ -60,20 +60,26 @@ public class AgentListActivity extends AppCompatActivity {
         loadData();
     }
 
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                if (keyword != null) {
+//                    startActivity(new Intent(this, SearchActivity.class));
+//                    finish();
+//                } else {
+//                    NavUtils.navigateUpFromSameTask(this);
+//                }
+//                return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (keyword != null) {
-                    startActivity(new Intent(this, SearchActivity.class));
-                    finish();
-                } else {
-                    NavUtils.navigateUpFromSameTask(this);
-                }
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
