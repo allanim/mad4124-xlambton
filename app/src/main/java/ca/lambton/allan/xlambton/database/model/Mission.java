@@ -15,7 +15,7 @@ public class Mission implements SingleIdEntity<Integer> {
                     + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COLUMN_AGENT_ID + " INTEGER,"
                     + COLUMN_DESCRIPTION + " TEXT,"
-                    + COLUMN_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP,"
+                    + COLUMN_DATE + " DATETIME DEFAULT (DATETIME('now','localtime')),"
                     + COLUMN_STATUS + " TEXT"
                     + ")";
 

@@ -16,6 +16,7 @@
         <item name="colorButtonNormal">@color/colorButtonNormal</item>
         <item name="android:textColorHint">@color/textColorPrimary</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:itemBackground">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

@@ -73,7 +73,8 @@
         <activity
             android:name=".SendPhotoActivity"
             android:label="Mission Update"></activity>
-        <activity android:name=".MissionListActivity"></activity>
+        <activity android:name=".MissionListActivity"
+            android:label="Mission Historical"></activity>
     </application>
 
 </manifest>

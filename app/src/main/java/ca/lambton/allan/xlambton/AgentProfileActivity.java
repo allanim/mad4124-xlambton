@@ -137,7 +137,7 @@ public class AgentProfileActivity extends AppCompatActivity {
         ImageView mission = findViewById(R.id.pf_mission);
         mission.setOnClickListener(v -> {
             Intent intent = new Intent(this, MissionListActivity.class);
-            intent.putExtra("agent", agent);
+            intent.putExtra("id", agent.getId());
             startActivity(intent);
         });
     }

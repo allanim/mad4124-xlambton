@@ -67,7 +67,7 @@ public class SendPhotoActivity extends AppCompatActivity {
 
             Intent sendIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
             sendIntent.addCategory(Intent.CATEGORY_DEFAULT);
-            sendIntent.setData(Uri.parse("mmsto:" + agent.getPhone()));
+//            sendIntent.setData(Uri.parse("mmsto:" + agent.getPhone()));
             sendIntent.setType("image/*");
 
             sendIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, agent.getPhone());
@@ -80,6 +80,12 @@ public class SendPhotoActivity extends AppCompatActivity {
 
             startActivity(sendIntent);
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void loadGrid() {
@@ -164,11 +170,5 @@ public class SendPhotoActivity extends AppCompatActivity {
                 loadSendButton();
             }
         }
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 }
