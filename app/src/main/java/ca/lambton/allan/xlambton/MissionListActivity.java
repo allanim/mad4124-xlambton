@@ -123,16 +123,18 @@ public class MissionListActivity extends AppCompatActivity {
             return false;
         });
 
-        if (mission.getStatus().equalsIgnoreCase("On going")) {
-            onGoing.setVisible(false);
-        } else if (mission.getStatus().equalsIgnoreCase("Done")) {
-            onGoing.setVisible(false);
-            done.setVisible(false);
-            cancel.setVisible(false);
-        } else if (mission.getStatus().equalsIgnoreCase("Cancelled")) {
-            onGoing.setVisible(false);
-            done.setVisible(false);
-            cancel.setVisible(false);
+        if (mission.getStatus() != null) {
+            if (mission.getStatus().equalsIgnoreCase("On going")) {
+                onGoing.setVisible(false);
+            } else if (mission.getStatus().equalsIgnoreCase("Done")) {
+                onGoing.setVisible(false);
+                done.setVisible(false);
+                cancel.setVisible(false);
+            } else if (mission.getStatus().equalsIgnoreCase("Cancelled")) {
+                onGoing.setVisible(false);
+                done.setVisible(false);
+                cancel.setVisible(false);
+            }
         }
 
         // delete

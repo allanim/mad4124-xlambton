@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
@@ -98,6 +99,12 @@ public class AgentFormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_form_ok:
+                EditText mUsername = findViewById(R.id.username);
+                if (repository.existUsername(mUsername.getText().toString())) {
+                    mUsername.setError("Already have this username");
+                    mUsername.requestFocus();
+                    return false;
+                }
                 if (helper.valid()) {
                     Agent agent = helper.getAgent();
                     if (agent.getId() == null) {

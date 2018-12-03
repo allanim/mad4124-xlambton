@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -15,18 +17,31 @@ import ca.lambton.allan.xlambton.database.model.Agent;
 import ca.lambton.allan.xlambton.database.repository.AgentRepository;
 import ca.lambton.allan.xlambton.utils.JsonUtils;
 
+import static android.Manifest.permission.READ_SMS;
+import static android.Manifest.permission.RECEIVE_SMS;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 public class SplashActivity extends AppCompatActivity {
 
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
+
+    private static final int SMS_PERMISSION_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // check sms receiver
+        if (!hasReadSmsPermission()) {
+            // request sms permission
+            requestReadAndSendSmsPermission();
+        }
+
         new Handler().postDelayed(() -> {
-            updateData();
+            // init data
+            initData();
 
             Intent i = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(i);
@@ -34,7 +49,25 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
 
-    private void updateData() {
+    // check permission
+    private boolean hasReadSmsPermission() {
+        return ContextCompat.checkSelfPermission(this, READ_SMS) == PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, RECEIVE_SMS) == PERMISSION_GRANTED;
+    }
+
+    // request sms permission
+    private void requestReadAndSendSmsPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, READ_SMS)) {
+            Log.d(this.getClass().getSimpleName(),
+                    "shouldShowRequestPermissionRationale(), no permission requested");
+            return;
+        }
+        ActivityCompat.requestPermissions(this,
+                new String[]{READ_SMS, RECEIVE_SMS}, SMS_PERMISSION_CODE);
+    }
+
+    // init data
+    private void initData() {
         AssetManager assetManager = getAssets();
         AgentRepository repository = new AgentRepository(this);
 

@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferencesUtils.instance(LoginActivity.this)
                         .editor()
                         .putInt("ID", entity.getId())
+                        .putInt("MID", entity.getId())
                         .putString("USERNAME", entity.getUsername())
                         .apply();
 
