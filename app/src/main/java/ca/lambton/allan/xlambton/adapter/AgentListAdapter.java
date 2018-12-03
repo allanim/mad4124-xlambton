@@ -44,7 +44,6 @@ public class AgentListAdapter extends ArrayAdapter<Agent> {
             Bitmap bitmap = BitmapFactory.decodeFile(dirAppPhoto);
             Bitmap lowdefbitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
             image.setImageBitmap(lowdefbitmap);
-//            image.setScaleType(ImageView.ScaleType.FIT_XY);
         }
 
         TextView name = view.findViewById(R.id.item_name);
